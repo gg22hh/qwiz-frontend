@@ -6,6 +6,7 @@ interface QuestionItemProps {
   answer: string;
   answerOption: string;
   index: number;
+  disable: boolean;
   handleClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
@@ -14,10 +15,12 @@ export const QuestionItem = ({
   answer,
   answerOption,
   index,
+  disable,
   handleClick,
 }: QuestionItemProps) => {
   return (
-    <li
+    <button
+      disabled={disable}
       style={{
         background: setBackground(index),
       }}
@@ -25,6 +28,6 @@ export const QuestionItem = ({
       onClick={handleClick}
     >
       {answerOption}
-    </li>
+    </button>
   );
 };

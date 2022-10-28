@@ -5,7 +5,10 @@ import { QuestionItem } from './QuestionItem';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface QuestionProps {
-  handleCounter: () => void;
+  handleCounter: (e: React.MouseEvent<HTMLElement>) => void;
+  handleSetRightAnswers: () => void;
+  id: string;
+  total: number;
   image: StaticImageData;
   question: string;
   answers: string[];
@@ -16,6 +19,9 @@ interface QuestionProps {
 
 export const Question = ({
   handleCounter,
+  handleSetRightAnswers,
+  id,
+  total,
   image,
   question,
   answers,
@@ -25,9 +31,16 @@ export const Question = ({
 }: QuestionProps) => {
   const [answer, setAnswer] = useState('');
   const [isAnswerRight, setIsAnswerRight] = useState(2);
+  const [disable, setDisable] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setAnswer((e.target as HTMLElement).innerText);
+  };
+
+  const handleGoNext = (e: React.MouseEvent<HTMLElement>) => {
+    if (answer) {
+      handleCounter(e);
+    }
   };
 
   const setBackground = (index: number) => {
@@ -49,10 +62,14 @@ export const Question = ({
   };
 
   const handleSubmitAnswer = () => {
-    if (answer === rightAnswer) {
-      setIsAnswerRight(1);
-    } else {
-      setIsAnswerRight(0);
+    if (answer) {
+      if (answer === rightAnswer) {
+        setIsAnswerRight(1);
+        handleSetRightAnswers();
+      } else {
+        setIsAnswerRight(0);
+      }
+      setDisable(true);
     }
   };
 
@@ -60,6 +77,7 @@ export const Question = ({
     return (
       <QuestionItem
         key={answerOption}
+        disable={disable}
         setBackground={setBackground}
         answer={answer}
         answerOption={answerOption}
@@ -79,12 +97,15 @@ export const Question = ({
         placeholder="blur"
       />
       <h2 className={s.question}>{question}</h2>
-      <ul className={s.answers}>{answersList}</ul>
+      <h3 className={s.count}>
+        {id}/{total}
+      </h3>
+      <div className={s.answers}>{answersList}</div>
       <div className={s.buttons}>
         <button className={s.button} onClick={handleSubmitAnswer}>
           Ответить
         </button>
-        <button className={s.next} onClick={handleCounter}>
+        <button className={s.next} onClick={handleGoNext}>
           <ArrowForwardIcon />
         </button>
       </div>
