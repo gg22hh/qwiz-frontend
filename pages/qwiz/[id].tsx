@@ -7,6 +7,8 @@ import s from '../../components/Questions/Questions.module.css';
 import { data } from '../../data.js';
 import { useRouter } from 'next/router';
 import { DataType } from '../../components/Questions/models';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Link from 'next/link';
 
 const Questions = () => {
   const router = useRouter();
@@ -60,6 +62,12 @@ const Questions = () => {
           />
         )}
       </div>
+      <Link className={s.back} href={'/qwiz'}>
+        <button>
+          <ArrowBackIcon />
+          Назад
+        </button>
+      </Link>
       <div className={s.main}>
         <h1 className={s.title}>{qwiz?.name}</h1>
         {questionList}
