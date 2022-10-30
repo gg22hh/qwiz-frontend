@@ -1,17 +1,22 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataType } from '../../components/Questions/models';
 import { data } from '../../data';
 import Head from 'next/head';
 import s from '../../components/Qwiz/Qwiz.module.css';
-import Image from 'next/image';
 import { QwizItem } from '../../components/Qwiz/components/QwizItem';
 
 const Qwiz = () => {
   const [qwiz, setQwiz] = useState<DataType[]>(data);
+  const [filtredQwiz, setFiltredQwiz] = useState<DataType[]>(qwiz);
   const [seacrh, setSearch] = useState('');
 
-  const qwizList = qwiz.map((item) => {
+  useEffect(() => {
+    const filtredData = qwiz.filter((item) => item.name.includes(seacrh));
+    setFiltredQwiz(filtredData);
+  }, [qwiz, seacrh]);
+
+  const qwizList = filtredQwiz.map((item) => {
     return <QwizItem key={item.id} item={item} />;
   });
 
