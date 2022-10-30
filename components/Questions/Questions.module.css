@@ -1,0 +1,161 @@
+.qwiz {
+  background: linear-gradient(-45deg, #04001c, #09003e, #01065b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.img {
+  object-fit: cover;
+  object-position: left;
+}
+.main {
+  position: relative;
+}
+
+.title {
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.box {
+  width: 700px;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background-color: #05253e;
+  box-shadow: 5px 5px 15px black;
+  animation-duration: 1s;
+  animation-name: box;
+}
+
+.image {
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.question {
+  text-align: center;
+  font-style: italic;
+  font-size: 25px;
+}
+
+.count {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.answers {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.active {
+  transform: translate(-8px, -8px) !important;
+}
+.answers button {
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  color: white;
+  border: 1px solid #0a304e;
+  background-color: #1a496e;
+
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.answers button:hover {
+  transform: translate(-8px, -8px);
+}
+
+.answers button:nth-child(1) {
+  border-radius: 8px 0 0 0;
+}
+
+.answers button:nth-child(2) {
+  border-radius: 0 8px 0 0;
+}
+
+.answers button:nth-child(3) {
+  border-radius: 0 0 0 8px;
+}
+
+.answers button:nth-child(4) {
+  border-radius: 0 0 8px 0;
+}
+
+.buttons {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.button {
+  width: 120px;
+  color: #e1e3e6;
+  padding: 3px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  transition: all 0.3s;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #1a496e;
+  transform: translateY(-1px);
+}
+
+.next {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-12px);
+  margin: 0 auto;
+  color: #e1e3e6;
+  text-decoration: underline;
+}
+
+.exp {
+  text-align: center;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.mark {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.markText {
+  text-align: center;
+}
+
+@keyframes box {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

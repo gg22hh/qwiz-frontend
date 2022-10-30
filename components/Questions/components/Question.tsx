@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
-import s from '../Qwiz.module.css';
+import s from '../Questions.module.css';
 import { QuestionItem } from './QuestionItem';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 

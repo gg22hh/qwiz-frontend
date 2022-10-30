@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../Qwiz.module.css';
+import s from '../Questions.module.css';
 
 interface QuestionItemProps {
   setBackground: (index: number) => string | undefined;
