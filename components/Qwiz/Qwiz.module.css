@@ -35,6 +35,7 @@
   display: grid;
   grid-template-columns: repeat(3, 250px);
   justify-content: space-between;
+  row-gap: 30px;
 }
 
 .item {
