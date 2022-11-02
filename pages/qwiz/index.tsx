@@ -5,6 +5,7 @@ import { data } from '../../data';
 import Head from 'next/head';
 import s from '../../components/Qwiz/Qwiz.module.css';
 import { QwizItem } from '../../components/Qwiz/components/QwizItem';
+import { TextField } from '@mui/material';
 
 const Qwiz = () => {
   const [qwiz, setQwiz] = useState<DataType[]>(data);
@@ -12,7 +13,9 @@ const Qwiz = () => {
   const [seacrh, setSearch] = useState('');
 
   useEffect(() => {
-    const filtredData = qwiz.filter((item) => item.name.includes(seacrh));
+    const filtredData = qwiz.filter((item) =>
+      item.name.toLowerCase().includes(seacrh)
+    );
     setFiltredQwiz(filtredData);
   }, [qwiz, seacrh]);
 
@@ -27,13 +30,14 @@ const Qwiz = () => {
       </Head>
       <div className={s.container}>
         <h1 className={s.title}>Тесты</h1>
-        <div className={s.search}>
-          <input
-            placeholder="Поиск"
-            value={seacrh}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+        <TextField
+          className={s.search}
+          label="Поиск"
+          variant="filled"
+          value={seacrh}
+          onChange={(e) => setSearch(e.target.value)}
+          fullWidth
+        />
         <p className={s.par}>Список:</p>
         <div className={s.qwiz}>{qwizList}</div>
       </div>

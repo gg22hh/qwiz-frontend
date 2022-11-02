@@ -58,7 +58,7 @@ a {
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  background: linear-gradient(-45deg, #04001c, #09003e, #01065b);
+  background: linear-gradient(-45deg, #04001c, #09003e, #01065b, #000670);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100%;
@@ -77,4 +77,3 @@ body {
     background-position: 0% 50%;
   }
 }
-/* #454647 */

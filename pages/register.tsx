@@ -1,20 +1,19 @@
-import { Button, TextField } from '@mui/material';
-import type { NextPage } from 'next';
 import Image from 'next/image';
-import s from '../components/Auth/Auth.module.css';
+import React from 'react';
 import { Form } from '../components/Auth/Form';
-import logo from '../static/images/logo.png';
+import s from '../components/Auth/Auth.module.css';
+import logo from '../static/images/logo2.png';
 
-const Auth: NextPage = () => {
+const Register = () => {
   return (
     <div className={s.box}>
       <h1 className={s.title}>Добро пожаловать</h1>
       <div className={s.info}>
         <Image width={400} src={logo} alt="logo" />
-        <Form title="Войти" />
+        <Form title="Продолжить" isRegister={true} />
       </div>
     </div>
   );
 };
 
-export default Auth;
+export default Register;
