@@ -1,0 +1,31 @@
+.noMatch {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 300px;
+  margin: 0 auto;
+  animation: noMatch 1s;
+}
+
+.title {
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+@keyframes noMatch {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
