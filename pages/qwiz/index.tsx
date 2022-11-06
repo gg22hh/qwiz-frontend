@@ -34,14 +34,16 @@ const Qwiz = () => {
           </Head>
           <div className={s.container}>
             <h1 className={s.title}>Привет, {name}! &#x1f64b; </h1>
-            <TextField
-              className={s.search}
-              label="Поиск"
-              variant="filled"
-              value={seacrh}
-              onChange={(e) => setSearch(e.target.value)}
-              fullWidth
-            />
+            <div className={s.search}>
+              <TextField
+                label="Поиск"
+                variant="filled"
+                value={seacrh}
+                onChange={(e) => setSearch(e.target.value)}
+                fullWidth
+              />
+            </div>
+
             <p className={s.par}>Список:</p>
             <div className={s.qwiz}>{qwizList}</div>
           </div>
